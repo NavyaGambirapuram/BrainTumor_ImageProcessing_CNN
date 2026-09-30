@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brain Tumor Detection</title>
+</head>
+
+<body>
+
+<center>
+
+<h1>Brain Tumor Detection Using CNN</h1>
+
+<form action="/predict" method="POST" enctype="multipart/form-data">
+
+    <input type="file" name="image" required>
+
+    <br><br>
+
+    <input type="submit" value="Predict">
+
+</form>
+
+{% if prediction %}
+
+    <h2>Prediction: {{ prediction }}</h2>
+
+    <h3>Confidence: {{ confidence }}%</h3>
+
+    <img src="{{ url_for('static', filename='uploads/' + image) }}" width="300">
+
+{% endif %}
+
+</center>
+
+</body>
+</html>
